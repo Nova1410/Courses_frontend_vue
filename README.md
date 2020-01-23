@@ -18,3 +18,8 @@ To run the project execute the command
 ```bash
 quasar dev
 ```
+
+If the command doesn't function use this
+```bash
+npx quasar dev
+```
