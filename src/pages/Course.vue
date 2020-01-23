@@ -3,7 +3,7 @@
   <div class="doc-container">
     <div class="row q-pa-md">
       <div class="col-6">
-        <q-input class="q-mr-md" v-model="search_term" @input="searchCourses" label="Search all courses">
+        <q-input class="q-mr-md" v-model="search_term" debounce="250" @input="searchCourses" label="Search all courses">
           <template v-slot:prepend>
             <q-icon color="blue-5" name="search" />
           </template>
@@ -86,7 +86,7 @@ export default {
         }
         this.$axios.get(path)
           .then(response => {
-            if(response.data.next == null && !this.scrollStop){
+            if(response.data.next == null && !this.scrollStop && this.courses.length > 0){
               this.scrollStop = true
               this.$refs.scroll.stop()
             }else{
