@@ -63,35 +63,46 @@
 export default {
     data() {
       return {
+        // variable to save the search writed in the input
         search_term: '',
+        // Array to save the courses obtained from the responses
         courses:[],
+        // Variable to save the next url
         next: 'courses/?limit=&offset=',
+        // Flag to control the infinite scrolling
         scrollStop: false
       }
     },
     created() {
     },
     methods: {
-      loadMoreData(index, done) {
-        let path = `courses/?offset=${6 * (index - 1)}`
-        this.getCourses(path)
-        done()
-      },
+      /**
+       * Method to get the courses
+       * @param index index of the infinite scroll
+       * @param done function to tell the scroll that the data is loaded
+       */
       getCourses(index, done) {
         let path = ''
+        // If there's a new index (Need load more data), get the next url to load
         if(/^\d+$/.test(index)){
           path = this.next
         }
+        // Get the courses
         this.$axios.get(path)
           .then(response => {
+            // If there's no more data, stop the infinite scroll and put the flag in true 
+            // to tell other functions that the scroll is stopped
             if(response.data.next == null && !this.scrollStop && this.courses.length > 0){
               this.scrollStop = true
               this.$refs.scroll.stop()
             }else{
+              // If there's data, map the courses and add to the courses array
               response.data.courses.map(course => {
                 this.courses.push(course)
               })
-              this.next = response.data.next      
+              // Get the next url
+              this.next = response.data.next
+              // Tell the infinite scroll that the data is loaded  
               done()
             }
           })
@@ -104,27 +115,38 @@ export default {
             })
           })
       },
+      // Method to get filter courses
       searchCourses() {
+        // If there´s something writted in the search_term put the next url to load the courses with the filter
         if (this.search_term !== '') {
           this.next = `courses/?search=${this.search_term}`
-          this.courses = [] 
+          // Clear courses array
+          this.courses = []
+          // If the infinite scroll is stopped, reset the index and resume the scroll
           if(this.scrollStop){
             this.$refs.scroll.reset()
             this.$refs.scroll.resume()
             this.scrollStop = false
+            // Get the filter courses
             this.getCourses(1,(stop) => void 0)
           } else {
+            // Get the filter courses
             this.getCourses(1,(stop) => void 0)
           }
         }else{
+          // If there´s nothing in the search_term, load the first page of courses
           this.next = 'courses/?limit=&offset='
+          // Clear the courses array
           this.courses = []
+          // If the infinite scroll is stopped, reset the index and resume the scroll
           if(this.scrollStop){
             this.$refs.scroll.reset()
             this.$refs.scroll.resume()
             this.scrollStop = false
+            // Get the courses
             this.getCourses(1,(stop) => void 0)
           } else {
+            // Get the courses
             this.getCourses(1,(stop) => void 0)
           }
         }
