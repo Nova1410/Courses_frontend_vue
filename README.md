@@ -2,21 +2,19 @@
 
 An application for a Test
 
-## Install the dependencies
-```bash
+# How to run the project
+
+## Install the dependencies of the project
+To install the dependencies of the project execute the command 
+```bash 
 npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+## Configure the endpoint (optional)
+If you need configure the endpoint go to ~/src/boot/ and configure the variable **baseURL** in the **axios.js** file
+
+## Run the project
+To run the project execute the command 
 ```bash
 quasar dev
 ```
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
