@@ -10,9 +10,7 @@
         </q-input>
       </div>
     </div>
-    <q-infinite-scroll ref="scroll" class="row q-mt-xl" @load="getCourses" :offset="200">
-
-        
+    <q-infinite-scroll ref="scroll" class="row justify-center q-mt-xl" @load="getCourses" :offset="200">  
           <div v-for="course in courses" :key="course.id" class="col-4 q-pa-lg">
             <q-card class="q-pa-md">
               <div class="absolute-top grayBox">
