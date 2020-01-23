@@ -3,7 +3,10 @@
     <q-header elevated>
       <q-toolbar>
         <q-toolbar-title>
-          Quasar App
+          <q-avatar size="xl">
+            <img src="statics/icons/LOGO.svg">
+          </q-avatar>
+          Course Catalog
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
