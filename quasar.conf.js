@@ -56,7 +56,17 @@ module.exports = function (ctx) {
         'QItem',
         'QItemSection',
         'QItemLabel',
-        'QInput'
+        'QInput',
+        'QCard',
+        'QCardSection',
+        'QCardActions',
+        'QSeparator',
+        'QRating',
+        'QImg',
+        'QChip',
+        'QInfiniteScroll',
+        'QSpinnerDots',
+        'QAvatar'
       ],
 
       directives: [
@@ -64,7 +74,12 @@ module.exports = function (ctx) {
       ],
 
       // Quasar plugins
-      plugins: []
+      plugins: [
+        'Notify'
+      ],
+      config: {
+        notify: { /* Notify defaults */ }
+      }
     },
 
     // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie
