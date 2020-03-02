@@ -66,11 +66,17 @@ module.exports = function (ctx) {
         'QChip',
         'QInfiniteScroll',
         'QSpinnerDots',
-        'QAvatar'
+        'QAvatar',
+        'QMenu',
+        'QList',
+        'QItem',
+        'QItemSection',
+        'QItemLabel'
       ],
 
       directives: [
-        'Ripple'
+        'Ripple',
+        'ClosePopup'
       ],
 
       // Quasar plugins
