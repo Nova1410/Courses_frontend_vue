@@ -1,8 +1,8 @@
 {
-  "name": "tt_test_frontend",
+  "name": "courses_frontend_vue",
   "version": "0.0.1",
-  "description": "An application for a Test",
-  "productName": "Test Node",
+  "description": "Vue.js + Quasar.js basic courses catalog page",
+  "productName": "Course Catalog",
   "cordovaId": "org.cordova.quasar.app",
   "capacitorId": "",
   "author": "Juan Cortés <jecortes27@misena.edu.com>",

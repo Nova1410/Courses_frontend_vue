@@ -1,6 +1,4 @@
-# Test Node (tt_test_frontend)
-
-An application for a Test
+# Courses_frontend_vue
 
 # How to run the project
 
