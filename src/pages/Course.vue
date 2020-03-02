@@ -61,6 +61,7 @@
 
 <script>
 export default {
+    name: 'courses',
     data() {
       return {
         // variable to save the search writed in the input
